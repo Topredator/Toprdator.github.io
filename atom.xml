@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://topredator.github.io/"/>
-  <updated>2019-03-16T08:37:24.604Z</updated>
+  <updated>2019-03-16T11:03:47.333Z</updated>
   <id>https://topredator.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UML图关系</title>
+    <link href="https://topredator.github.io/2019/03/16/UML%E5%9B%BE%E5%85%B3%E7%B3%BB/"/>
+    <id>https://topredator.github.io/2019/03/16/UML图关系/</id>
+    <published>2019-03-16T10:58:34.000Z</published>
+    <updated>2019-03-16T11:03:47.333Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>UML类图的六大关系分析</strong></p><a id="more"></a><ul><li><p>泛化（generalization）</p><p>是一种继承关系，表示一般与特殊的关系，它指定了子类如何特化父类的所有特征和行为。</p><pre><code>继承关系（老虎 －▷动物）:带三角箭头的实线，箭头指向父类</code></pre></li><li><p>实现（Realization）</p><p>是一种类与接口的关系，表示类是接口所有特征和行为的实现.</p><pre><code>类与接口关系（······▷）：带三角箭头的虚线，箭头指向接口</code></pre></li><li><p>关联（Association）</p><p>是一种拥有的关系，它使一个类知道另一个类的属性和方法（单双向）；</p><pre><code>拥有关系（老师－学生→课程）：带普通箭头的实心线，指向被拥有者（单项有箭头）</code></pre></li><li><p>聚合（Aggregation）</p><p> 整体与部分关系(部分离开整体可以单独存在)</p><pre><code>（汽车♢→轮胎）: 带空心菱形的实心线，菱形指向整体</code></pre></li><li><p>组合（Composition）</p><p> 整体与部分(部分不能离开整体单独存在)</p><pre><code>（公司♦→部门）:带实心菱形的实线，菱形指向整体</code></pre></li><li><p>依赖（Dependence）</p><p>是一种使用的关系，即一个类的实现需要另一个类的协助，所以要尽量不使用双向的互相依赖.</p><pre><code>使用关系(方法参数/对静态方法调用)（····＞）：带箭头的虚线，指向被使用者</code></pre></li></ul><h4 id="各种关系的强弱顺序："><a href="#各种关系的强弱顺序：" class="headerlink" title="各种关系的强弱顺序："></a>各种关系的强弱顺序：</h4><p><strong>泛化</strong> <strong>=</strong> <strong>实现</strong> <strong>&gt;</strong> <strong>组合</strong> <strong>&gt;</strong> <strong>聚合</strong> <strong>&gt;</strong> <strong>关联</strong> <strong>&gt;</strong> <strong>依赖</strong> </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;UML类图的六大关系分析&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="UML" scheme="https://topredator.github.io/tags/UML/"/>
+    
+  </entry>
   
   <entry>
     <title>Git的命令使用</title>
