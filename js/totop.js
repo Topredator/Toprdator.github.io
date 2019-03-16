@@ -1,8 +1,12 @@
-// Doubly click the body to top
-
-let atc = document.querySelector('.article');
-// atc.setAttribute('ondblclick', 'toTop()');
-atc.ondblclick = function() {
-    // document.documentElement.scrollTop = 0;
-    window.scrollTo({top: 0, behavior: 'auto'});    // instant, smooth, auto
-}
+$(window).scroll(function() {
+    $(window).scrollTop() > 500 ? $("#rocket").addClass("show") : $("#rocket").removeClass("show");
+});
+$("#rocket").click(function() {
+    $("#rocket").addClass("launch");
+    $("html, body").animate({
+        scrollTop: 0
+    }, 500, function() {
+        $("#rocket").removeClass("show launch");
+    });
+    return false;
+});

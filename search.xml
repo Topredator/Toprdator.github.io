@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Git的命令使用</title>
+      <link href="/2019/03/15/Git%E7%9A%84%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/"/>
+      <url>/2019/03/15/Git%E7%9A%84%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p><code>git config [--local / --gloab / --system]  user.name  &#39;XXXXX&#39;</code><br><code>git config [--local / --gloab / --system] user.email  &#39;XXXX&#39;</code><br>注释：<code>local 区域为本仓库</code>   / <code>global 当前用户的所有仓库</code> / <code>system 本系统的所有用户</code></p><h4 id="log"><a href="#log" class="headerlink" title="log"></a>log</h4><p><code>git log --all 查看所有分支的历史</code></p><p><code>git log --all --graph 查看图形化的 log 地址</code></p><p><code>git log --oneline 查看单行的简洁历史</code></p><p><code>git log --oneline -n4 查看最近的四条简洁历史</code></p><p><code>git log --oneline --all -n4 --graph 查看所有分支最近 4 条单行的图形化历史</code></p><p><code>git help --web log 跳转到git log 的帮助文档网页</code></p><p><code>git mv readme readme.md 直接用git更改文件名</code></p><p><code>git cat-file -p &#39;commitId&#39; 查看commit对象</code></p><h4 id="比较两次commit差异"><a href="#比较两次commit差异" class="headerlink" title="比较两次commit差异"></a>比较两次commit差异</h4><ul><li><code>git diff &#39;commitId1&#39; &#39;commitId2&#39;</code>   <strong>或者</strong> <code>git diff HEAD [HEAD^/HEAD~1]</code> </li><li>暂存区与HEAD的比较 <code>git diff --cached</code></li></ul><p>####更改之前的commit提交的信息</p><p><code>git rebase -i [super commitId]</code></p><p><code>pick 改为 reword/r</code></p><h4 id="合并多个commit"><a href="#合并多个commit" class="headerlink" title="合并多个commit"></a>合并多个commit</h4><p><code>git rebase -i [super commitId]</code></p><p><code>保留一个pick，将需要融合的commit方到pick的下面，前面的pick改为 squash/s</code>    </p><h5 id="取消合并"><a href="#取消合并" class="headerlink" title="取消合并"></a>取消合并</h5><p><code>git rebase --abort</code></p><ul><li><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p><strong>创建：</strong></p><p><code>git branch &lt;branchName&gt;</code></p><p><strong>查看：</strong></p><p><code>git branch</code>(本地)</p><p><code>git branch -a</code>(远端)</p><p><strong>切换：</strong></p><p><code>git checkout &lt;branchName&gt;</code></p><p><strong>创建+切换：</strong></p><p><code>git checkout -b &lt;branchName&gt;</code></p><p><strong>删除：</strong></p><p><code>git branch -d &lt;branchName&gt;</code></p><p><code>git branch -D &lt;branchName&gt;</code>(强行删除)</p><p><code>git push &lt;origin&gt; --delete &lt;branchName&gt;</code>(删除远端分支)</p><p><strong>合并：</strong></p><p><code>git merge &lt;branchName&gt;</code></p><p><code>git rebase &lt;branchName&gt;</code></p><p>merge 快速合并，看不到曾经合并；merge –no-ff 普通合并，可看历史合并； </p><p><strong>查看分支合并图：</strong></p><p><code>git log --graph</code></p><p><strong>拉取远端分支（本地无此分支）：</strong></p><p><code>git checkout -b &lt;branchName&gt; &lt;origin&gt;/&lt;branchName&gt; 若失败，先fetch，再执行</code></p></li></ul><ul><li><h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><p><strong>创建：</strong></p><p><code>git tag &lt;tagName&gt;</code></p><p><code>git tag &lt;tagName&gt; &lt;commit id&gt;</code></p><p><strong>查看：</strong></p><p><code>git tag</code></p><p><code>git show &lt;tagName&gt;</code></p><p><strong>给已提交的内容打tag：</strong></p><p><code>git tag &lt;tagName&gt; &lt;commit id&gt;</code></p><p><strong>指定标签信息：</strong></p><p><code>git tag -a &lt;tagName&gt; -m &quot;xxx&quot;</code></p><p><strong>删除：</strong></p><p><code>git tag -d &lt;tagName&gt;</code></p><p><code>git push &lt;origin&gt; :ref/tags/&lt;tagName&gt;</code>(删除远端，先删除本地)</p><p><strong>推送：</strong></p><p><code>git push &lt;origin&gt; &lt;tagName&gt;</code></p><p><code>git push &lt;origin&gt; --tags</code></p></li><li><h3 id="关联"><a href="#关联" class="headerlink" title="关联"></a>关联</h3><p><code>git remote add &lt;origin&gt; &lt;url&gt;</code></p><p><strong>推送：</strong></p><p><code>git push -u origin master</code>(第一次推送)</p><p><code>git push &lt;origin&gt; master</code></p><p><strong>克隆：</strong></p><p><code>git clong &lt;url&gt;</code></p><p><strong>本地分支与远端分支建立连接：</strong></p><p><code>git branch --set-upstream-to &lt;localBranchName&gt; &lt;origin&gt;/&lt;remoteBranchName&gt;</code></p></li></ul><ul><li><h3 id="储藏"><a href="#储藏" class="headerlink" title="储藏"></a>储藏</h3><p><strong>储藏：</strong></p><p><code>git stash</code></p><p><strong>查看储藏现场：</strong></p><p><code>git stash list</code></p><p><strong>恢复现场：</strong></p><p><code>git stash apply</code>(不删除现场)</p><p><code>git stash pop</code>(删除现场)</p></li></ul><ul><li><h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h3><p><strong>没有add，没有commit：</strong></p><p><code>git checkout --file &lt;file&gt;</code></p><p><strong>add后，没有commit：</strong></p><p><code>git reset HEAD &lt;file&gt;</code></p><p><code>git reset HEAD</code></p><p><strong>add且commit：</strong></p><p><code>git reset --hard &lt;HEAD^&gt;</code></p><p><code>git reset --hard &lt;commit id&gt;</code></p></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2019/03/15/hello-world/"/>
+      <url>/2019/03/15/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
